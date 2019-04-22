@@ -7,10 +7,15 @@ import "./App.css";
 var skillsArray = [];
 
 class App extends Component {
+  enterSkill() {
+    var skillInput = document.getElementById("skillForm").value;
 
-  enterSkill(){
-    skillsArray.push(document.getElementById("skillForm").value);
-    console.log(skillsArray.pop());
+    if (!skillsArray.includes(skillInput)) {
+      skillsArray.push(skillInput);
+    }else{
+      {/*Do nothing*/}
+    }
+    console.log(skillsArray);
   }
 
   render() {
