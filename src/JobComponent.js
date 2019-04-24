@@ -2,17 +2,32 @@ import React, {Component} from "react";
 import ReactDOM from "react-dom";
 
 class JobComponent extends Component{
+  constructor(){
+    super();
+    this.state ={
+      position = "defaultPosition",
+      company = "defaultCompany",
+      location = "defaultLocation",
+      description = "defaultDescription"
+    };
+  }
 
-  Person.defaultProps = { positionName: "DefaultDescription",
-companyName: "DefaultCompany",
-description: "DefaultDesc" };
-
+  componentDidMount(){
+    fetch("https://jobs.github.com/positions.json?description=python&location=new+york")
+    .then(results => {
+      return results.json();
+    }).then(data => {
+      let
+    })
+  }
 
   render(){
     return(
-      <div>
-      <div>{ this.props.name } (age: { this.props.positionName })</div>
-
+      <div className="job-container">
+        <p className="position"></p>
+        <p className="company"></p>
+        <p className="location"></p>
+        <p className="description"></p>
       </div>
     );
   }

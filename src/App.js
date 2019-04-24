@@ -6,6 +6,8 @@ import "./App.css";
 //global variables
 var skillsArray = [];
 
+//secure will use github jobs
+
 class App extends Component {
   enterSkill() {
     var skillInput = document.getElementById("skillForm").value;
