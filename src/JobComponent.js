@@ -5,31 +5,51 @@ class JobComponent extends Component{
   constructor(){
     super();
     this.state ={
-      position = "defaultPosition",
-      company = "defaultCompany",
-      location = "defaultLocation",
-      description = "defaultDescription"
+      error: null,
+      isLoaded: false,
+      items: []
     };
   }
 
   componentDidMount(){
-    fetch("https://jobs.github.com/positions.json?description=python&location=new+york")
-    .then(results => {
-      return results.json();
-    }).then(data => {
-      let
-    })
+    var url = "https://jobs.github.com/positions.json?description=python&location=new+york";
+    var urlTest = "https://jsonplaceholder.typicode.com/users";
+    fetch(url)
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            isLoaded: true,
+            items: result         });
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+      )
   }
 
   render(){
+    var {isLoaded, items} = this.state;
+    if(!isLoaded){
+      return <div>Loading...</div>;
+    }else{
     return(
-      <div className="job-container">
-        <p className="position"></p>
-        <p className="company"></p>
-        <p className="location"></p>
-        <p className="description"></p>
-      </div>
+      <ul>
+        {items.map(item =>(
+          <li key={item.id}>
+            {item.id} | {item.description}
+          </li>
+        ))}
+      </ul>
+
     );
+  }
   }
 }
 

@@ -3,12 +3,15 @@ import ReactDOM from "react-dom";
 import { Button, Form } from "react-bootstrap";
 import "./App.css";
 
+//components
+import JobComponent from "./JobComponent.js";
 //global variables
 var skillsArray = [];
 
 //secure will use github jobs
 
 class App extends Component {
+
   enterSkill() {
     var skillInput = document.getElementById("skillForm").value;
 
@@ -36,8 +39,9 @@ class App extends Component {
           Add Skill
         </Button>
         <Button variant="primary" size="lg" block>
-          Lets Go!
+          Lets Go!.ß
         </Button>
+        <JobComponent />
       </div>
     );
   }
