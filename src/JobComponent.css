@@ -1,0 +1,23 @@
+.list{
+  list-style: none;
+}
+.jobContainer{
+  background-color: green;
+  border-color: blue;
+  border: 2px;
+}
+
+.company{
+  display: inline;
+  padding: 15px;
+}
+
+.location{
+  display: inline;
+  padding: 15px;
+}
+
+.title{
+  display: inline;
+  padding: 15px;
+}

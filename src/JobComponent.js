@@ -1,5 +1,8 @@
 import React, {Component} from "react";
 import ReactDOM from "react-dom";
+import "./JobComponent.css";
+
+
 
 class JobComponent extends Component{
   constructor(){
@@ -12,6 +15,8 @@ class JobComponent extends Component{
   }
 
   componentDidMount(){
+    {/*url options*/}
+    var pagnation = 0;
     var url = "https://jobs.github.com/positions.json?description=python&location=new+york";
     var urlTest = "https://jsonplaceholder.typicode.com/users";
     fetch(url)
@@ -42,8 +47,18 @@ class JobComponent extends Component{
     return(
       <ul>
         {items.map(item =>(
-          <li key={item.id}>
-            {item.id} | {item.description}
+          <li className="list "key={item.id}>
+            <div className="jobContainer">
+              <div className="company">
+                {item.company}
+              </div>
+              <div className="title">
+                {item.title}
+              </div>
+              <div className="location">
+                {item.location}
+              </div>
+            </div>
           </li>
         ))}
       </ul>
